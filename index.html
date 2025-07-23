@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoBrand Showcase</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box;}
+    body { font-family: Arial, sans-serif; color: #333; line-height:1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    .navbar {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1rem 2rem; background:#222; color:white; position:sticky; top:0; z-index:100;
+    }
+    .navbar nav a { margin:0 1rem; }
+    .navbar nav a:hover { text-decoration:underline; }
+
+    .hero {
+      position:relative; height:80vh; overflow:hidden;
+    }
+    .hero video {
+      width:100%; height:100%; object-fit:cover;
+    }
+    .hero-overlay {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4); display:flex;
+      flex-direction:column; justify-content:center; align-items:center;
+      color:white; text-align:center;
+    }
+    .hero-overlay button {
+      margin-top:1rem; padding:0.8rem 1.5rem;
+      font-size:1rem; background:#ff5500; border:none; color:white;
+      cursor:pointer; border-radius:4px;
+    }
+    .hero-overlay button:hover { background:#e64a00; }
+
+    .section { padding:4rem 2rem; }
+    .section h2 { margin-bottom:2rem; text-align:center; }
+
+    .models .cards, .testimonial-cards {
+      display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+    }
+    .card, .testimonial {
+      background:#f8f8f8; padding:1.5rem; border-radius:8px;
+      max-width:300px; text-align:center;
+    }
+    .card img { width:100%; border-radius:8px; margin-bottom:1rem; }
+
+    .gallery-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      gap:1rem;
+    }
+    .gallery-grid img { width:100%; border-radius:8px; }
+
+    .media-videos {
+      display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+    }
+    .media-videos iframe { max-width:100%; }
+
+    .testimonials { background:#eaeaea; }
+
+    footer {
+      background:#222; color:#ccc; text-align:center; padding:2rem;
+    }
+    footer h3 { color:white; margin-bottom:1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">AutoBrand</div>
+    <nav>
+      <a href="#models">Models</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Video Section -->
+  <section class="hero">
+    <video autoplay muted loop id="heroVideo">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-overlay">
+      <h1>Discover the Experience</h1>
+      <button>Explore Models</button>
+    </div>
+  </section>
+
+  <!-- Models Section -->
+  <section id="models" class="section models">
+    <h2>Our Models</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://picsum.photos/seed/model1/400/250" alt="Model 1">
+        <h3>Model One</h3>
+        <p>Description for Model One.</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/model2/400/250" alt="Model 2">
+        <h3>Model Two</h3>
+        <p>Description for Model Two.</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/model3/400/250" alt="Model 3">
+        <h3>Model Three</h3>
+        <p>Description for Model Three.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://picsum.photos/seed/gal1/300/200" alt="Gallery 1">
+      <img src="https://picsum.photos/seed/gal2/300/200" alt="Gallery 2">
+      <img src="https://picsum.photos/seed/gal3/300/200" alt="Gallery 3">
+      <img src="https://picsum.photos/seed/gal4/300/200" alt="Gallery 4">
+      <img src="https://picsum.photos/seed/gal5/300/200" alt="Gallery 5">
+      <img src="https://picsum.photos/seed/gal6/300/200" alt="Gallery 6">
+    </div>
+  </section>
+
+  <!-- Video Highlights Section -->
+  <section id="media" class="section media">
+    <h2>Media Highlights</h2>
+    <div class="media-videos">
+      <div class="media-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media;" allowfullscreen></iframe>
+      </div>
+      <div class="media-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oHg5SJYRHA0" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"Absolutely love it! A game-changer."</p>
+        <span>- Alex</span>
+      </div>
+      <div class="testimonial">
+        <p>"Incredible design and performance."</p>
+        <span>- Jamie</span>
+      </div>
+      <div class="testimonial">
+        <p>"Never seen anything like it."</p>
+        <span>- Taylor</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <h3>AutoBrand</h3>
+      <p>Contact us: info@autobrand.com</p>
+      <p>&copy; 2025 AutoBrand. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-to-section when navbar links clicked
+    document.querySelectorAll('.navbar nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
