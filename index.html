@@ -3,63 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <title>Motiv</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f9f9;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #000000;
+      color: #00f0ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.5s ease;
+    }
+
     header {
-      background-color: #00bcd4;
-      padding: 20px;
-      color: white;
+      background-color: #00f0ff;
+      padding: 25px 20px;
+      color: #000;
       text-align: center;
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      user-select: none;
+      box-shadow: 0 0 15px #00f0ffaa;
     }
+
+    header p {
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-top: 8px;
+      color: #a0f7ff;
+    }
+
     nav {
-      background: #0097a7;
-      padding: 10px;
+      background-color: #001f2f;
+      padding: 15px 0;
       text-align: center;
+      box-shadow: 0 0 15px #00f0ffaa inset;
     }
+
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: #00f0ff;
+      margin: 0 25px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
     }
-    section {
-      padding: 20px;
-      display: none;
+    nav a:hover, nav a:focus {
+      background-color: #00f0ff;
+      color: #000;
+      outline: none;
+      box-shadow: 0 0 12px #00f0ff;
     }
-    section.active {
-      display: block;
-    }
+
     .coins {
       font-size: 18px;
       text-align: center;
-      margin-top: 20px;
-      color: #00796b;
-    }
-    .activity {
       margin: 20px 0;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background: #e1f5fe;
+      color: #00f0ff;
+      font-weight: 600;
+      letter-spacing: 1px;
+      user-select: none;
+      text-shadow: 0 0 6px #00f0ffaa;
     }
-    button {
-      padding: 10px 20px;
+
+    section {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      padding: 20px;
+      display: none;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards ease-in-out;
+      user-select: text;
+      border-radius: 15px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 2px solid #00f0ff;
+      box-shadow: 0 0 10px #00f0ff88;
+      transition: box-shadow 0.3s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Front page banners with background images, full-ish width */
+    .banner-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .banner {
+      background: rgba(0, 240, 255, 0.15);
+      border: 2px solid #00f0ff;
+      border-radius: 15px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 0 12px #00f0ff88;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      color: #c0f9ff;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      user-select: none;
+    }
+
+    .banner:hover {
+      box-shadow: 0 0 25px #00f0ffcc;
+    }
+
+    .banner h3 {
+      color: #00f0ff;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      text-shadow: 0 0 8px #00f0ffbb;
+      user-select: none;
+    }
+
+    .banner button {
+      background-color: #00f0ff;
+      border: none;
+      color: #000;
+      padding: 12px 28px;
       font-size: 16px;
-      margin-top: 10px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f0ffaa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
     }
+    .banner button:hover {
+      background-color: #00c0cc;
+      box-shadow: 0 0 18px #00f0ff;
+    }
+
+    /* Activities styling */
+    .activity {
+      margin: 25px 0;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 2px solid #00f0ff;
+      box-shadow: 0 0 10px #00f0ff88;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .activity:hover {
+      box-shadow: 0 0 20px #00f0ffcc;
+    }
+
+    h2, h3 {
+      font-weight: 600;
+      color: #00f0ff;
+      text-shadow: 0 0 6px #00f0ff88;
+    }
+
+    p, li {
+      font-weight: 400;
+      color: #a0e9ff;
+      line-height: 1.5;
+      margin-top: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    ul {
+      margin-top: 12px;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    button {
+      background-color: #00f0ff;
+      border: none;
+      color: #000;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f0ffaa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    button:hover:not(:disabled) {
+      background-color: #00c0cc;
+      box-shadow: 0 0 18px #00f0ff;
+    }
+    button:disabled {
+      background-color: #004044;
+      cursor: not-allowed;
+      box-shadow: none;
+      color: #003336;
+    }
+
     .timer {
       margin-top: 10px;
       font-size: 18px;
-      color: #e65100;
+      color: #ff6f00;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 6px #ff6f0044;
+      user-select: none;
     }
+
     .complete {
-      color: green;
-      font-weight: bold;
+      color: #00ff33;
+      font-weight: 700;
+      margin-top: 10px;
+      text-shadow: 0 0 8px #00ff33cc;
+      user-select: none;
+      display: block;
+    }
+
+    /* Info pages: same style as main but no background images, just padding & rounded corners */
+    #goals, #campaign {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      padding: 30px 25px;
+      border-radius: 15px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 2px solid #00f0ff;
+      box-shadow: 0 0 15px #00f0ff88;
+      color: #a0e9ff;
+      user-select: text;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+      }
+      section {
+        padding: 15px;
+      }
+      button {
+        width: 100%;
+      }
+      .banner-container {
+        gap: 15px;
+        padding: 0 10px;
+      }
+      .banner {
+        padding: 20px 15px;
+      }
+      #goals, #campaign {
+        margin: 0 10px 30px 10px;
+        padding: 20px 15px;
+      }
+    }
+
+    /* Background images for banners on front page */
+    #bannerGoals {
+      background-image: url('data:image/svg+xml;utf8,<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%2300f0ff" stop-opacity="0.6"/><stop offset="100%" stop-color="%23005066" stop-opacity="0"/></radialGradient></defs><rect width="400" height="200" fill="url(%23g)"/><circle cx="100" cy="100" r="80" fill="none" stroke="%2300f0ff" stroke-width="2" stroke-opacity="0.5"/><circle cx="300" cy="100" r="80" fill="none" stroke="%2300f0ff" stroke-width="2" stroke-opacity="0.5"/></svg>');
+    }
+
+    #bannerCampaign {
+      background-image: url('data:image/svg+xml;utf8,<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%2300f0ff" stop-opacity="0.4"/><stop offset="100%" stop-color="%23007099" stop-opacity="0"/></linearGradient></defs><rect width="400" height="200" fill="url(%23lg)"/><path d="M0 100 Q 100 0 200 100 T 400 100" fill="none" stroke="%2300f0ff" stroke-width="3" stroke-opacity="0.5"/><circle cx="350" cy="50" r="40" fill="none" stroke="%2300f0ff" stroke-width="2" stroke-opacity="0.6"/></svg>');
     }
   </style>
 </head>
@@ -73,6 +294,8 @@
   <nav>
     <a href="#" onclick="showSection('home')">Main Page</a>
     <a href="#" onclick="showSection('activities')">Activities</a>
+    <a href="#" onclick="showSection('goals')">Our Goals</a>
+    <a href="#" onclick="showSection('campaign')">Campaign Info</a>
   </nav>
 
   <div class="coins">
@@ -82,19 +305,16 @@
   <!-- HOME SECTION -->
   <section id="home" class="active">
     <h2>Welcome!</h2>
-    <p>This website was make to keep young individuals fit, these days many kids sit at home on their screen doing whatever they want, earning digital currency... This way you earn digital currency whilst you do physical activity, you can buy stuff and show off your coins. also if you try to cheat the system i will know and erase all your points. 
-
-This campaign was made to support the NPAG with the daily move goal of 60 minuites every day to stay fit and healthy, this is a huge struggle againt modern day teens.
-
-
-</p>
-    <ul>
-      <li>Aim for 60 minuites of exercise every day</li>
-      <li>Limit sedentary behavior</li>
-      <li>Earn goofy coins that do nothing</li>
-      <li>Don't 
-disintegrate and become a dried grape.</li>
-    </ul>
+    <div class="banner-container">
+      <div id="bannerGoals" class="banner" tabindex="0" role="button" onclick="showSection('goals')" onkeypress="if(event.key==='Enter'){showSection('goals')}">
+        <h3>🎯 Our Goals</h3>
+        <button type="button" aria-label="Learn more about our goals">Learn More</button>
+      </div>
+      <div id="bannerCampaign" class="banner" tabindex="0" role="button" onclick="showSection('campaign')" onkeypress="if(event.key==='Enter'){showSection('campaign')}">
+        <h3>📢 Campaign Info</h3>
+        <button type="button" aria-label="Learn more about campaign info">Learn More</button>
+      </div>
+    </div>
   </section>
 
   <!-- ACTIVITIES SECTION -->
@@ -126,16 +346,45 @@ disintegrate and become a dried grape.</li>
     </div>
   </section>
 
+  <!-- OUR GOALS INFO SECTION -->
+  <section id="goals">
+    <h2>🎯 Our Goals</h2>
+    <div class="info-text">
+      <p>This website was made to keep young individuals fit. Nowadays, many kids sit at home on their screens doing whatever they want, earning digital currency... This way, you earn digital currency whilst you do physical activity. You can buy stuff and show off your coins. Also, if you try to cheat the system, I will know and erase all your points.</p>
+
+      <ul>
+        <li>Aim for 60 minutes of exercise every day</li>
+        <li>Limit sedentary behavior</li>
+        <li>Earn goofy coins that do nothing</li>
+        <li>Don't disintegrate and become a dried grape.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN INFO SECTION -->
+  <section id="campaign">
+    <h2>📢 Campaign Info</h2>
+    <div class="info-text">
+      <p>This campaign was made to support the NPAG with the daily move goal of 60 minutes every day to stay fit and healthy. This is a huge struggle against modern-day teens.</p>
+      <p>We want to encourage young people to get active, limit screen time, and create healthy habits through fun activities.</p>
+    </div>
+  </section>
+
   <script>
     // Load coin count
     let coins = parseInt(localStorage.getItem("coins")) || 0;
     document.getElementById("coinCount").textContent = coins;
 
     function showSection(id) {
+      // Hide all sections
       document.querySelectorAll("section").forEach(section => {
         section.classList.remove("active");
       });
+      // Show selected
       document.getElementById(id).classList.add("active");
+
+      // Scroll to top on section change
+      window.scrollTo({top:0, behavior:'smooth'});
     }
 
     function startActivity(id) {
