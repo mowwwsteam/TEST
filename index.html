@@ -2,183 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AutoBrand Showcase</title>
+  <title>Motiv</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box;}
-    body { font-family: Arial, sans-serif; color: #333; line-height:1.6; }
-    a { text-decoration: none; color: inherit; }
-
-    .navbar {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:1rem 2rem; background:#222; color:white; position:sticky; top:0; z-index:100;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f9f9;
+      margin: 0;
+      padding: 0;
     }
-    .navbar nav a { margin:0 1rem; }
-    .navbar nav a:hover { text-decoration:underline; }
-
-    .hero {
-      position:relative; height:80vh; overflow:hidden;
+    header {
+      background-color: #00bcd4;
+      padding: 20px;
+      color: white;
+      text-align: center;
     }
-    .hero video {
-      width:100%; height:100%; object-fit:cover;
+    nav {
+      background: #0097a7;
+      padding: 10px;
+      text-align: center;
     }
-    .hero-overlay {
-      position:absolute; top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.4); display:flex;
-      flex-direction:column; justify-content:center; align-items:center;
-      color:white; text-align:center;
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .hero-overlay button {
-      margin-top:1rem; padding:0.8rem 1.5rem;
-      font-size:1rem; background:#ff5500; border:none; color:white;
-      cursor:pointer; border-radius:4px;
+    section {
+      padding: 20px;
+      display: none;
     }
-    .hero-overlay button:hover { background:#e64a00; }
-
-    .section { padding:4rem 2rem; }
-    .section h2 { margin-bottom:2rem; text-align:center; }
-
-    .models .cards, .testimonial-cards {
-      display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+    section.active {
+      display: block;
     }
-    .card, .testimonial {
-      background:#f8f8f8; padding:1.5rem; border-radius:8px;
-      max-width:300px; text-align:center;
+    .coins {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 20px;
+      color: #00796b;
     }
-    .card img { width:100%; border-radius:8px; margin-bottom:1rem; }
-
-    .gallery-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-      gap:1rem;
+    .activity {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #e1f5fe;
     }
-    .gallery-grid img { width:100%; border-radius:8px; }
-
-    .media-videos {
-      display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
     }
-    .media-videos iframe { max-width:100%; }
-
-    .testimonials { background:#eaeaea; }
-
-    footer {
-      background:#222; color:#ccc; text-align:center; padding:2rem;
+    .timer {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #e65100;
     }
-    footer h3 { color:white; margin-bottom:1rem; }
+    .complete {
+      color: green;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">AutoBrand</div>
-    <nav>
-      <a href="#models">Models</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#media">Media</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header>
+    <h1>Motiv</h1>
+    <p>Fun way to stay active and earn useless coin items :D</p>
   </header>
 
-  <!-- Hero Video Section -->
-  <section class="hero">
-    <video autoplay muted loop id="heroVideo">
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <div class="hero-overlay">
-      <h1>Discover the Experience</h1>
-      <button>Explore Models</button>
-    </div>
+  <nav>
+    <a href="#" onclick="showSection('home')">Main Page</a>
+    <a href="#" onclick="showSection('activities')">Activities</a>
+  </nav>
+
+  <div class="coins">
+    🪙 Your Coins: <span id="coinCount">0</span>
+  </div>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="active">
+    <h2>Welcome!</h2>
+    <p>This website was make to keep young individuals fit, these days many kids sit at home on their screen doing whatever they want, earning digital currency... This way you earn digital currency whilst you do physical activity, you can buy stuff and show off your coins. also if you try to cheat the system i will know and erase all your points. 
+
+This campaign was made to support the NPAG with the daily move goal of 60 minuites every day to stay fit and healthy, this is a huge struggle againt modern day teens.
+
+
+</p>
+    <ul>
+      <li>Aim for 60 minuites of exercise every day</li>
+      <li>Limit sedentary behavior</li>
+      <li>Earn goofy coins that do nothing</li>
+      <li>Don't 
+disintegrate and become a dried grape.</li>
+    </ul>
   </section>
 
-  <!-- Models Section -->
-  <section id="models" class="section models">
-    <h2>Our Models</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://picsum.photos/seed/model1/400/250" alt="Model 1">
-        <h3>Model One</h3>
-        <p>Description for Model One.</p>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/seed/model2/400/250" alt="Model 2">
-        <h3>Model Two</h3>
-        <p>Description for Model Two.</p>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/seed/model3/400/250" alt="Model 3">
-        <h3>Model Three</h3>
-        <p>Description for Model Three.</p>
-      </div>
+  <!-- ACTIVITIES SECTION -->
+  <section id="activities">
+    <h2>Try These Activities!</h2>
+
+    <div class="activity" id="jumpingJacks">
+      <h3>🏃 Jumping Jacks (4 minutes)</h3>
+      <p>Do jumping jacks to get your heart pumping!</p>
+      <button onclick="startActivity('jumpingJacks')">Start</button>
+      <div class="timer" id="timer-jumpingJacks"></div>
+      <div id="status-jumpingJacks"></div>
+    </div>
+
+    <div class="activity" id="stretching">
+      <h3>🧘 Stretching Break (4 minutes)</h3>
+      <p>Relax and stretch your muscles.</p>
+      <button onclick="startActivity('stretching')">Start</button>
+      <div class="timer" id="timer-stretching"></div>
+      <div id="status-stretching"></div>
+    </div>
+
+    <div class="activity" id="danceParty">
+      <h3>💃 Mini Dance Party (4 minutes)</h3>
+      <p>Play your favorite song and dance around your room!</p>
+      <button onclick="startActivity('danceParty')">Start</button>
+      <div class="timer" id="timer-danceParty"></div>
+      <div id="status-danceParty"></div>
     </div>
   </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="section gallery">
-    <h2>Photo Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://picsum.photos/seed/gal1/300/200" alt="Gallery 1">
-      <img src="https://picsum.photos/seed/gal2/300/200" alt="Gallery 2">
-      <img src="https://picsum.photos/seed/gal3/300/200" alt="Gallery 3">
-      <img src="https://picsum.photos/seed/gal4/300/200" alt="Gallery 4">
-      <img src="https://picsum.photos/seed/gal5/300/200" alt="Gallery 5">
-      <img src="https://picsum.photos/seed/gal6/300/200" alt="Gallery 6">
-    </div>
-  </section>
-
-  <!-- Video Highlights Section -->
-  <section id="media" class="section media">
-    <h2>Media Highlights</h2>
-    <div class="media-videos">
-      <div class="media-video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media;" allowfullscreen></iframe>
-      </div>
-      <div class="media-video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/oHg5SJYRHA0" 
-          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media;" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="section testimonials">
-    <h2>What People Say</h2>
-    <div class="testimonial-cards">
-      <div class="testimonial">
-        <p>"Absolutely love it! A game-changer."</p>
-        <span>- Alex</span>
-      </div>
-      <div class="testimonial">
-        <p>"Incredible design and performance."</p>
-        <span>- Jamie</span>
-      </div>
-      <div class="testimonial">
-        <p>"Never seen anything like it."</p>
-        <span>- Taylor</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-content">
-      <h3>AutoBrand</h3>
-      <p>Contact us: info@autobrand.com</p>
-      <p>&copy; 2025 AutoBrand. All Rights Reserved.</p>
-    </div>
-  </footer>
 
   <script>
-    // Scroll-to-section when navbar links clicked
-    document.querySelectorAll('.navbar nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+    // Load coin count
+    let coins = parseInt(localStorage.getItem("coins")) || 0;
+    document.getElementById("coinCount").textContent = coins;
+
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
       });
-    });
+      document.getElementById(id).classList.add("active");
+    }
+
+    function startActivity(id) {
+      const duration = 4 * 60; // 4 minutes in seconds
+      let remaining = duration;
+      const timerDisplay = document.getElementById(`timer-${id}`);
+      const statusDisplay = document.getElementById(`status-${id}`);
+      const button = document.querySelector(`#${id} button`);
+
+      button.disabled = true;
+      statusDisplay.textContent = '';
+      timerDisplay.textContent = `Time left: ${formatTime(remaining)}`;
+
+      const interval = setInterval(() => {
+        remaining--;
+        timerDisplay.textContent = `Time left: ${formatTime(remaining)}`;
+        if (remaining <= 0) {
+          clearInterval(interval);
+          coins += 10;
+          localStorage.setItem("coins", coins);
+          document.getElementById("coinCount").textContent = coins;
+          statusDisplay.innerHTML = `<span class="complete">✅ Activity Complete! +10 coins!</span>`;
+          timerDisplay.textContent = '';
+          button.disabled = false;
+        }
+      }, 1000);
+    }
+
+    function formatTime(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = seconds % 60;
+      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
   </script>
+
 </body>
 </html>
